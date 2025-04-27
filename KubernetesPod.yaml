@@ -11,7 +11,7 @@ spec:
     image: gcr.io/kaniko-project/executor:latest
     args:
     - "--dockerfile=/workspace/Dockerfile"
-    - "--context=/workspace"
+    - "--context=dir:///workspace"
     - "--destination=docker.io/anas1243/solar-app:latest"
     volumeMounts:
     - name: kaniko-secret
