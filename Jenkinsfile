@@ -31,13 +31,12 @@ pipeline {
         stage('test Kaniko') {
             steps {
                 container('kaniko') {
-                    // sh """
-                    // /kaniko/executor \
-                    // --dockerfile=/workspace/Dockerfile \
-                    // --context=/workspace \
-                    // --destination=docker.io/<your_dockerhub_username>/<image-name>:<tag>
-                    // """
-                    sh "cat /workspace/Dockerfile"
+                    sh """
+                    /kaniko/executor \
+                    --dockerfile=Dockerfile \
+                    --context=`pwd` \
+                    --destination=docker.io/anas1243/solar-app:latest
+                    """
                 }
             }
         }
